@@ -9,8 +9,10 @@ export class SimulatorService {
   sendData() {
     console.log('calling service');
 
-    this.http.get('http://52.229.8.80:3000/users').subscribe(res => {
-      // console.log(res);
-    });
+    this.http
+      .get('https://devcloudcartup.xyz/node/dist/sendDataToTelemetryDevice')
+      .subscribe(res => {
+        // console.log(res);
+      });
   }
 }

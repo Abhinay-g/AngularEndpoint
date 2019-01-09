@@ -157,7 +157,9 @@ var SimulatorService = /** @class */ (function () {
     }
     SimulatorService.prototype.sendData = function () {
         console.log('calling service');
-        this.http.get('http://52.229.8.80:3000/users').subscribe(function (res) {
+        this.http
+            .get('https://devcloudcartup.xyz/node/dist/sendDataToTelemetryDevice')
+            .subscribe(function (res) {
             // console.log(res);
         });
     };
