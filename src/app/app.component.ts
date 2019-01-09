@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
       this.acceleration_x = event.acceleration.x + ' m/s2';
       this.acceleration_y = event.acceleration.y + ' m/s2';
       this.acceleration_z = event.acceleration.z + ' m/s2';
-      console.log(this._simulator.sendData());
+      this._simulator.sendData();
     });
   }
 }
