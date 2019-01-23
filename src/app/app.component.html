@@ -1,4 +1,12 @@
-<h1>Angular Endpoint</h1>
-<h1>{{ acceleration_x }}</h1>
-<h1>{{ acceleration_y }}</h1>
-<h1>{{ acceleration_z }}</h1>
+<!-- <div><app-subscribe></app-subscribe></div> -->
+<button class="button button-primary" (click)="subscribeToNotifications()">
+  Subscribe
+</button>
+
+<div>
+  <h1>Angular Endpoint</h1>
+  <h1>{{ acceleration_x }}</h1>
+  <h1>{{ acceleration_y }}</h1>
+  <h1>{{ acceleration_z }}</h1>
+  <h1>Total Acceleration : {{ totalAcceleration }}</h1>
+</div>

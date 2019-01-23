@@ -269,6 +269,9 @@ MIT
 @angular/common
 MIT
 
+@angular/service-worker
+MIT
+
 @angular/platform-browser
 MIT
 
