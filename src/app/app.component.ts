@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SimulatorService } from './simulator.service';
 import { SwPush } from '@angular/service-worker';
+import { Acceleration } from './models/acceleration';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +17,22 @@ export class AppComponent implements OnInit {
   readonly VAPID_PUBLIC_KEY =
     'BAonEp9mCq5JkdVC8zK9lPZDhHeFaeDLel1OFUzgOGOW7cTVscv8w9l8KQSgqhBBX0s6_oaz8ROyOxPg9IntTtc';
   subscribed = false;
+  indexDb: any;
+  acceleration: Acceleration;
   /**
    *
    */
-  constructor(private swPush: SwPush, private _simulator: SimulatorService) {}
+  constructor(private swPush: SwPush, private _simulator: SimulatorService) {
+    this.acceleration = new Acceleration();
+    console.log('constructor called');
+    setInterval(() => {
+      // send data
+      this.acceleration.acceleration = Math.floor(
+        Math.random() * Math.floor(20)
+      );
+      _simulator.sendRandomAcceleration(this.acceleration);
+    }, 3000);
+  }
   ngOnInit() {
     console.log('subscribed', this.subscribed);
   }
@@ -65,5 +78,10 @@ export class AppComponent implements OnInit {
           });
       }
     });
+    // let interval = 0;
+    // setInterval(() => {
+    //   console.log(interval);
+    //   interval++;
+    // }, 5000);
   }
 }
